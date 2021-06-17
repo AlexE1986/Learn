@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Header from './components/Header';
+import ItemList from './components/ItemList';
+import Menu from './components/Menu';
+import TopMenu from './components/TopMenu';
+import Footer from './components/Footer';
+import { connect } from 'react-redux';
 
-function App() {
+// const MemoItemList = memo(ItemList);
+
+function App({ store }) {
+
+  // const store = useMemo(() => props.store, [props.store]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <div className='container center'>
+      <Header />
+      <Menu />
+      <TopMenu />
+      <ItemList store={store} />
+      <Footer />
+    </div>);
 }
 
-export default App;
+export default connect(
+  state => ({
+    store: state.storage.filter((good) => (good.name.toLowerCase().includes(state.search) && good.category.toLowerCase().includes(state.filterCat))),
+  }),
+  dispatch => ({})
+)(App)

@@ -1,0 +1,139 @@
+.item {
+   position: relative;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+   font-weight: bold;
+   font-size: 20px;
+   min-width: 250px;
+   max-width: 350px;
+   height: 250px;
+ 
+   text-align: center;
+   background-color: #f6f6f6;
+   margin: 15px;
+ 
+   box-shadow: 5px 5px 10px 2px #aaa;
+   border-radius: 15px;
+
+   &__category {
+      grid-column: span 3;
+      height: 40px;
+      text-align: right;
+      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+      font-size: 25px;
+      font-weight: bold;
+      padding: 5px 10px 0 0;
+     
+      margin: 5px 5px 0 5px;
+    
+      border: 1px solid #ccc;
+      border-bottom: 2px dotted #ccc;
+      border-radius: 10px 10px 0 0;
+   }
+
+   &__image {
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 50% 5%;
+      width: 150px;
+      height: 150px;
+      margin-top: 10px;
+      margin-left: -30%;
+   }
+
+   &__list {
+      display: grid;
+      grid-template-columns: 33.333% 33.333% 33.333%;
+      justify-content: space-evenly;
+      background-color: white;
+      color: black;
+   }
+
+   &__price {
+      position: absolute;
+      right: 10px;
+      top: 45px;
+    
+      width: 120px;
+    
+      display: inline-block;
+    
+      border: 1px solid #ccc;
+      border-bottom: 2px solid #aaa;
+      border-right: 2px solid #aaa;
+      border-radius: 10px;
+    
+    
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 30px;
+      text-shadow: 2px 2px 2px #aaa;
+      z-index: 100;
+   }
+
+   &__buttons {
+      position: absolute;
+    
+      display: flex;
+    
+      justify-content: space-between;
+      align-items: center;
+    
+      width: 90px;
+      height: 30px;
+    
+      right: 20px;
+      top: 160px;
+    
+      border: 1px solid #ccc;
+      text-align: center;
+   }
+
+   &__name {
+
+      width: 150px;
+      margin-top: 5px;
+    
+      border: 1px solid #ccc;
+      border-bottom: 2px dotted #ccc;
+      border-radius: 10px 10px 0 0;
+   }
+
+   &__button {
+      width: 30px;
+      height: 28px;
+   }
+    
+   &__button:hover{
+    background-color: #eee;
+    cursor: pointer;
+    outline: 1px solid #ccc;
+   }
+    
+   &__basket {
+      width: 120px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+    
+      text-shadow: 1px 1px #aaa;
+    
+      box-shadow: 2px 2px #aaa;
+   }
+    
+   &__basket:hover{
+      background-color: lightgray;
+      cursor: pointer;
+      box-shadow: none;
+   }
+
+   &__no-muthes {
+      grid-column: span 3;
+   }
+}
+
+
+ 
+
+ 
+
+ 
+
+

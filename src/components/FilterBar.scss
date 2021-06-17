@@ -1,0 +1,26 @@
+.sort-bar {
+   width: 320px;
+   height: 30px;
+   display: flex;
+
+   justify-content: space-between;
+   align-items: center;
+
+   &__button {
+
+      width: 75px;
+      height: 30px;
+      cursor: pointer;
+      border: none;
+      background-color: #eee;
+      transition: 0.5s;
+   }
+
+   &__button:hover {
+      background-color: #fff;
+   }
+
+   &__button_active {
+      background-color: #fff;
+   }
+}

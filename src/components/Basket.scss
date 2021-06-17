@@ -1,0 +1,70 @@
+.basket {
+margin: 7px;
+padding: 6px;
+
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+font-size: 14px;
+border: 2px solid #ccc;
+border-top: 3px solid #aaa;
+border-left: 3px solid #aaa;
+border-radius: 15px;
+
+
+   &__header{
+
+      text-align: center;
+
+      font-size: 24px;
+      text-transform: uppercase;
+
+      border: 1px solid #ccc;
+      border-bottom: 2px dotted #ccc;
+      border-radius: 10px 10px 0 0;
+   }
+
+   &__item-name {
+      height: 20px;
+      font-weight: bold;
+   }
+
+   &__item-total {
+      height: 25px;
+      font-size: 12px;
+      font-style: italic;
+      border-bottom: 2px dotted #ccc;
+   }
+
+   &__total {
+      margin: 5px;
+      font-weight: bold;
+      text-align: right;
+   }
+
+   &__empty {
+      margin: 5px;
+      font-style: italic;
+      text-align: center;
+   }
+
+   &__delete {
+      position: absolute;
+      right: 20px;
+      margin-top: -3px;
+
+      font-size: 14px;
+      cursor: pointer;
+   }
+
+   &__clear {
+      width: 60px;
+      text-align: center;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      transition: 0.5s;
+   }
+
+   &__clear:hover {
+      background-color: #eee;
+   }
+
+}
