@@ -29,7 +29,8 @@ border-radius: 15px;
    }
 
    &__item-total {
-      height: 25px;
+      min-height: 25px;
+      padding-bottom: 2px;
       font-size: 12px;
       font-style: italic;
       border-bottom: 2px dotted #ccc;

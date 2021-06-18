@@ -10,7 +10,7 @@ function Item({ item, onAddToBasket }) {
 
    const addToBasket = function () {
       if (count > 0) {
-         onAddToBasket({ ...item, number: count });
+         onAddToBasket({ ...item, number: +count });
          setCount(0);
       }
    }
@@ -23,7 +23,28 @@ function Item({ item, onAddToBasket }) {
       if (count > 0) setCount(count - 0.5);
    }
 
-   const newCount = (count < 10 && count !== 0) ? count.toFixed(1) : count;
+   const input = function (e) {
+      const input = e.target.parentNode.lastChild;
+      input.classList.remove('hidden');
+      input.focus();
+      let inputCount = 0;
+
+      input.oninput = function () {
+         inputCount = +input.value;
+         inputCount = (inputCount > 10) ? 10 : inputCount;
+      }
+
+      input.onkeydown = function (e) {
+         if (e.key === 'Enter') input.blur();
+      }
+
+      input.onblur = function () {
+         if (inputCount !== 0 && !isNaN(inputCount)) { setCount(inputCount.toFixed(2)) }
+
+         input.value = '';
+         input.classList.add('hidden');
+      }
+   }
 
    return (
       <div className='item'>
@@ -31,8 +52,9 @@ function Item({ item, onAddToBasket }) {
          <img src={`/img/${item.category}/${srcImg}.jpg`} className='item__image' alt='' />
          <div className='item__buttons center white'>
             <div className='item__button' onClick={minus}>-</div>
-            <div>{newCount}</div>
+            <div className='item__count' onClick={input}>{count}</div>
             <div className='item__button' onClick={plus}>+</div>
+            <input className='item__input-count hidden'></input>
          </div>
          <div className='item__price white'>{item.price.toFixed(2)}</div>
          <div className='item__basket center white' onClick={addToBasket}>TO BASKET</div>

@@ -23,7 +23,7 @@ function SearchBar({ onSearch }) {
 
    return (
       <div className='search-bar'>
-         <input className='search-bar__input' ref={input} placeholder='найти...' onInput={() => setTimeout(search, 500)}></input>
+         <input type='search' className='search-bar__input' ref={input} placeholder='найти...' onInput={() => setTimeout(search, 500)} autoComplete='off'></input>
          <i className="fa fa-search search-bar__icon" />
          <button className='search-bar__clear hidden' id='clear' onClick={clear}>X</button>
       </div>
