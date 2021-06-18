@@ -51,6 +51,7 @@ function Item({ item, onAddToBasket }) {
          <div className='item__name center white'>{item.name}</div>
          <img src={`/img/${item.category}/${srcImg}.jpg`} className='item__image' alt='' />
          <div className='item__buttons center white'>
+            <div className='item__text'>less 10 kg</div>
             <div className='item__button' onClick={minus}>-</div>
             <div className='item__count' onClick={input}>{count}</div>
             <div className='item__button' onClick={plus}>+</div>
