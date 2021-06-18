@@ -4,10 +4,12 @@ import './SearchBar.scss';
 
 function SearchBar({ onSearch }) {
    const input = useRef('');
-   const clearBtn = document.querySelector('[id="clear"]');
-   console.log(clearBtn);
+   let clearBtn;
 
    const search = function () {
+      clearBtn = document.querySelector('[id="clear"]');
+      console.log(clearBtn);
+
       onSearch(input.current.value);
       clearBtn.classList.remove('hidden');
       if (input.current.value === '') clearBtn.classList.add('hidden');
@@ -23,7 +25,7 @@ function SearchBar({ onSearch }) {
       <div className='search-bar'>
          <input className='search-bar__input' ref={input} placeholder='найти...' onInput={() => setTimeout(search, 500)}></input>
          <i className="fa fa-search search-bar__icon" />
-         <button className='search-bar__clear' id='clear' onClick={clear}>X</button>
+         <button className='search-bar__clear hidden' id='clear' onClick={clear}>X</button>
       </div>
    );
 }

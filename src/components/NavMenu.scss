@@ -1,7 +1,7 @@
 .nav-menu {
    margin: 7px;
    padding: 6px;
-   padding-bottom: 10px;
+
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
    font-size: 20px;
 
@@ -29,7 +29,8 @@
       height: 30px;
       padding-left: 5px;
 
-      border: 2px dotted #ccc;
+      border: 1px solid #ccc;
+      border-bottom: 2px dotted #ccc;
       border-top: none;
 
       cursor: pointer;
@@ -39,5 +40,14 @@
 
    &__item:hover {
    background-color: #eee;
+   }
+
+   &__footer {
+      content: '';
+      height: 11px;
+
+      border: 1px solid #ccc;
+      border-top: none;
+      border-radius: 0 0 10px 10px;
    }
 }

@@ -17,6 +17,7 @@ function NavMenu({ store, onFilterCategory }) {
          <div className='nav-menu__item' key='all' onClick={() => onFilterCategory('')}>SHOW ALL</div>
          {cat.map((item, index) => <div className='nav-menu__item' key={index} onClick={() => onFilterCategory(item)} >• {item.toUpperCase()}</div>)
          }
+         <div className='nav-menu__footer'></div>
       </div >
    );
 }
