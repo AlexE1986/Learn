@@ -32,6 +32,7 @@ function Item({ item, onAddToBasket }) {
       input.oninput = function () {
          inputCount = +input.value;
          inputCount = (inputCount > 10) ? 10 : inputCount;
+         inputCount = (inputCount < 0) ? 0 : inputCount;
       }
 
       input.onkeydown = function (e) {
