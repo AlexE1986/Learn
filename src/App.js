@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import Header from './components/Header';
 import ItemList from './components/ItemList';
 import Menu from './components/Menu';
 import TopMenu from './components/TopMenu';
 import Footer from './components/Footer';
-import { connect } from 'react-redux';
+import Modal from './components/Modal';
 
 function App({ store }) {
 
@@ -15,7 +17,9 @@ function App({ store }) {
       <TopMenu />
       <ItemList store={store} />
       <Footer />
-    </div>);
+      <Modal />
+    </div>
+  );
 }
 
 export default connect(

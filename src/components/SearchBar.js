@@ -8,7 +8,6 @@ function SearchBar({ onSearch }) {
 
    const search = function () {
       clearBtn = document.querySelector('[id="clear"]');
-      console.log(clearBtn);
 
       onSearch(input.current.value);
       clearBtn.classList.remove('hidden');
