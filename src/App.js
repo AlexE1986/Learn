@@ -6,11 +6,7 @@ import TopMenu from './components/TopMenu';
 import Footer from './components/Footer';
 import { connect } from 'react-redux';
 
-// const MemoItemList = memo(ItemList);
-
 function App({ store }) {
-
-  // const store = useMemo(() => props.store, [props.store]);
 
   return (
     <div className='container center'>
