@@ -1,22 +1,24 @@
 import React, { useRef } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './SearchBar.scss';
 
-function SearchBar({ onSearch }) {
+export default function SearchBar({ onSearch }) {
    const input = useRef('');
+   const dispatch = useDispatch();
+
    let clearBtn;
 
    const search = function () {
       clearBtn = document.querySelector('[id="clear"]');
-
-      onSearch(input.current.value);
+      dispatch({ type: 'SEARCH', payload: input.current.value });
       clearBtn.classList.remove('hidden');
       if (input.current.value === '') clearBtn.classList.add('hidden');
    }
 
    const clear = function () {
-      onSearch('');
+      clearBtn = document.querySelector('[id="clear"]');
       input.current.value = '';
+      dispatch({ type: 'SEARCH', payload: '' });
       clearBtn.classList.add('hidden');
    }
 
@@ -28,12 +30,3 @@ function SearchBar({ onSearch }) {
       </div>
    );
 }
-
-export default connect(
-   state => ({}),
-   dispatch => ({
-      onSearch: (value) => {
-         dispatch({ type: 'SEARCH', payload: value })
-      }
-   })
-)(SearchBar)

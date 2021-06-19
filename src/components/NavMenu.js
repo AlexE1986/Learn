@@ -1,9 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './NavMenu.scss';
 
-function NavMenu({ store, onFilterCategory }) {
+export default function NavMenu() {
    const categories = new Set();
+   const store = useSelector(state => state.storage);
+   const dispatch = useDispatch();
 
    store.forEach((item) => {
       categories.add(item.category);
@@ -14,21 +16,10 @@ function NavMenu({ store, onFilterCategory }) {
    return (
       <div className='nav-menu white'>
          <div className='nav-menu__header'>CATEGORIES</div>
-         <div className='nav-menu__item' key='all' onClick={() => onFilterCategory('')}>SHOW ALL</div>
-         {cat.map((item, index) => <div className='nav-menu__item' key={index} onClick={() => onFilterCategory(item)} >• {item.toUpperCase()}</div>)
+         <div className='nav-menu__item' key='all' onClick={() => dispatch({ type: 'FILTER_CAT', cat: '' })}>SHOW ALL</div>
+         {cat.map((item, index) => <div className='nav-menu__item' key={index} onClick={() => dispatch({ type: 'FILTER_CAT', cat: item })} >• {item.toUpperCase()}</div>)
          }
          <div className='nav-menu__footer'></div>
       </div >
    );
 }
-
-export default connect(
-   store => ({
-      store: store.storage
-   }),
-   dispatch => ({
-      onFilterCategory: (cat) => {
-         dispatch({ type: 'FILTER_CAT', cat: cat })
-      }
-   })
-)(NavMenu)

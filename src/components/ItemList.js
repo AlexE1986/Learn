@@ -1,9 +1,11 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import Item from './Item';
 
-function ItemList({ store, cat }) {
+export default function ItemList({ store }) {
+
+   const cat = useSelector(state => state.filterCat);
 
    let catName = <div className='item__category'>{cat.toUpperCase()}</div>;
 
@@ -21,10 +23,3 @@ function ItemList({ store, cat }) {
 
    );
 }
-
-export default connect(
-   store => ({
-      cat: store.filterCat
-   }),
-   dispatch => ({})
-)(ItemList)

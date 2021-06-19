@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import './Item.scss';
 
-function Item({ item, onAddToBasket }) {
+export default function Item({ item }) {
 
    const [count, setCount] = useState(0);
+   const dispatch = useDispatch();
 
    const srcImg = item.name.split(' ').join('_');
 
    const addToBasket = function () {
       if (count > 0) {
-         onAddToBasket({ ...item, number: +count });
+         dispatch({ type: 'ADD_TO_BASKET', good: { ...item, number: +count } });
          setCount(0);
       }
    }
@@ -62,11 +63,3 @@ function Item({ item, onAddToBasket }) {
          <div className='item__basket center white' onClick={addToBasket}>TO BASKET</div>
       </div>);
 }
-
-export default connect(
-   state => ({}),
-   dispatch => ({
-      onAddToBasket: (good) => {
-         dispatch({ type: 'ADD_TO_BASKET', good })
-      }
-   }))(Item)

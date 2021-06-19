@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import './Basket.scss';
 
-function Basket({ basket, onDeleteFromBasket, onClearBasket }) {
+export default function Basket() {
+   const basket = useSelector(state => state.basket);
+   const dispatch = useDispatch();
 
-   const deleteItem = function (name) {
-      onDeleteFromBasket(name);
-   }
+   const deleteItem = (name) => dispatch({ type: 'DELETE_FROM_BASKET', name: name });
 
    if (basket.length === 0) {
       return (
@@ -26,23 +26,8 @@ function Basket({ basket, onDeleteFromBasket, onClearBasket }) {
             </div>)
             }
             <div className='basket__total'>Total price: {(basket.reduce((sum, current) => sum + +(current.price * current.number), 0)).toFixed(2)} ₽</div>
-            <div className='basket__clear center' onClick={() => onClearBasket()}>CLEAR</div>
+            <div className='basket__clear center' onClick={() => dispatch({ type: 'CLEAR_BASKET' })}>CLEAR</div>
          </div>
       );
    }
-
 }
-
-export default connect(
-   state => ({
-      basket: state.basket
-   }),
-   dispatch => ({
-      onDeleteFromBasket: (name) => {
-         dispatch({ type: 'DELETE_FROM_BASKET', name: name })
-      },
-      onClearBasket: () => {
-         dispatch({ type: 'CLEAR_BASKET' })
-      }
-   })
-)(Basket)
